@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tổng quan - Ban Công Nghệ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Chart.js for beautiful charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body{
-    background:#eef6fb;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soạn thông báo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Quicksand', sans-serif;
+}
+
+body{
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    font-family: 'Quicksand', sans-serif;
+    background:linear-gradient(135deg,#eaf4fb,#dbeafe);
 }
 
+/* ===== MODAL ===== */
 .modal{
-    width:500px;
+    width:540px;
     background:#f8fafc;
     border-radius:30px;
     padding:30px;
-    box-shadow:0 20px 60px rgba(0,0,0,0.1);
+    box-shadow:0 25px 60px rgba(0,0,0,0.15);
 }
 
 /* HEADER */
@@ -33,191 +41,174 @@
     align-items:center;
     margin-bottom:20px;
 }
+
+.modal-header h2{
+    color:#1e3a5f;
+}
+
 .close{
+    width:40px;
+    height:40px;
     background:#e2e8f0;
-    width:35px;
-    height:35px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
     border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     cursor:pointer;
 }
 
-/* STATS */
-.stats{
-    display:flex;
-    justify-content:space-around;
-    margin-bottom:20px;
-    text-align:center;
-}
-.stats h3{
-    font-size:28px;
-    margin-bottom:5px;
-}
-.stats p{
-    color:#94a3b8;
-    font-weight:600;
+/* FORM */
+.form-group{
+    margin-bottom:18px;
 }
 
-/* COLORS */
-.red{color:#ef4444;}
-.orange{color:#f59e0b;}
-.purple{color:#8b5cf6;}
-
-/* ALERT */
-.alert{
-    padding:12px 16px;
-    border-radius:14px;
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
-    font-weight:600;
-}
-
-.red-bg{
-    background:#fee2e2;
-    color:#b91c1c;
-}
-.yellow-bg{
-    background:#fef3c7;
-    color:#92400e;
-}
-
-/* USER */
-.user{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-top:15px;
-}
-
-.avatar{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:700;
-    margin-right:10px;
-}
-
-.red-avt{
-    background:#fee2e2;
-    color:#ef4444;
-}
-.yellow-avt{
-    background:#fef3c7;
-    color:#f59e0b;
-}
-
-.info{
-    flex:1;
-    margin-left:10px;
-}
-.info p{
-    color:#94a3b8;
-    font-size:13px;
-}
-
-/* TAG */
-.tag{
-    padding:6px 12px;
-    border-radius:20px;
+label{
     font-size:12px;
     font-weight:700;
+    color:#94a3b8;
+    margin-bottom:6px;
+    display:block;
 }
 
-.red-tag{
-    background:#fee2e2;
-    color:#ef4444;
-}
-.yellow-tag{
-    background:#fef3c7;
-    color:#f59e0b;
+input, select, textarea{
+    width:100%;
+    padding:14px;
+    border-radius:18px;
+    border:1px solid #e2e8f0;
+    background:#f1f5f9;
+    font-weight:600;
+    outline:none;
 }
 
-/* FOOTER */
-.footer{
-    text-align:center;
-    margin-top:20px;
-    color:#0ea5e9;
-    font-weight:700;
+textarea{
+    height:120px;
+    resize:none;
+}
+
+/* CHIPS */
+.chips{
+    background:#f1f5f9;
+    padding:12px;
+    border-radius:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.chip{
+    padding:8px 14px;
+    border-radius:20px;
+    background:#fff;
+    border:1px solid #e2e8f0;
+    font-weight:600;
     cursor:pointer;
 }
-    </style>
+
+.chip.active{
+    background:#1C4E75;
+    color:white;
+}
+
+/* BUTTON */
+.form-actions{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+}
+
+.btn{
+    flex:1;
+    padding:15px;
+    border-radius:20px;
+    border:none;
+    font-weight:700;
+    cursor:pointer;
+    font-size:14px;
+}
+
+/* cancel */
+.btn.cancel{
+    background:#e2e8f0;
+    color:#475569;
+}
+
+/* submit */
+.btn.submit{
+    background:#1C4E75;
+    color:white;
+}
+
+/* hover */
+.btn:hover{
+    transform:translateY(-2px);
+    opacity:0.9;
+    transition:0.2s;
+}
+
+</style>
 </head>
+
 <body>
 
-    <div class="modal">
+<div class="modal">
+
+    <!-- HEADER -->
     <div class="modal-header">
-        <h2>Cảnh báo kỷ luật</h2>
-        <span class="close">✕</span>
+        <h2>Soạn thông báo mới</h2>
+        <div class="close">✕</div>
     </div>
 
-    <!-- STATS -->
-    <div class="stats">
-        <div>
-            <h3 class="red">18</h3>
-            <p>Vắng 7+ ngày</p>
+    <!-- TITLE -->
+    <div class="form-group">
+        <label>TIÊU ĐỀ THÔNG BÁO</label>
+        <input type="text" placeholder="VD: Thông báo họp Ban tháng 5...">
+    </div>
+
+    <!-- TYPE -->
+    <div class="form-group">
+        <label>LOẠI TIN</label>
+        <select>
+            <option>Tin tức nội bộ</option>
+            <option>Thông báo khẩn</option>
+        </select>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="form-group">
+        <label>NỘI DUNG CHI TIẾT</label>
+        <textarea placeholder="Nội dung thông báo gửi đến các thành viên..."></textarea>
+    </div>
+
+    <!-- GROUP -->
+    <div class="form-group">
+        <label>GỬI ĐẾN NHÓM CHUYÊN MÔN</label>
+        <div class="chips">
+            <span class="chip active">Tất cả nhóm</span>
+            <span class="chip">Web App</span>
+            <span class="chip">Mobile App</span>
+            <span class="chip">UI/UX Design</span>
         </div>
-        <div>
-            <h3 class="orange">11</h3>
-            <p>Bỏ quiz tuần</p>
+    </div>
+
+    <!-- ROLE -->
+    <div class="form-group">
+        <label>GỬI ĐẾN VAI TRÒ</label>
+        <div class="chips">
+            <span class="chip active">Tất cả vai trò</span>
+            <span class="chip">Trưởng ban</span>
+            <span class="chip">Quản trị viên</span>
+            <span class="chip">Thành viên</span>
+            <span class="chip">Cộng tác viên</span>
         </div>
-        <div>
-            <h3 class="purple">7</h3>
-            <p>Trễ bài tập</p>
-        </div>
     </div>
 
-    <!-- ALERT -->
-    <div class="alert red-bg">
-        ⚠ Nguy cơ rời CLB (vắng > 14 ngày)
-        <span>4</span>
+    <!-- BUTTON -->
+    <div class="form-actions">
+        <button class="btn cancel">Hủy bỏ</button>
+        <button class="btn submit">Đăng thông báo</button>
     </div>
 
-    <div class="alert yellow-bg">
-        ⚠ Cần nhắc nhở (vắng 7 - 13 ngày)
-        <span>14</span>
-    </div>
-
-    <!-- LIST -->
-    <h4>Thành viên cần liên hệ ngay</h4>
-
-    <div class="user">
-        <div class="avatar red-avt">NK</div>
-        <div class="info">
-            <b>Nguyễn Khánh</b>
-            <p>Web App • Vắng 15 ngày</p>
-        </div>
-        <span class="tag red-tag">Nguy cơ cao</span>
-    </div>
-
-    <div class="user">
-        <div class="avatar yellow-avt">PT</div>
-        <div class="info">
-            <b>Phạm Thảo</b>
-            <p>UI/UX • Vắng 11 ngày</p>
-        </div>
-        <span class="tag yellow-tag">Nhắc nhở</span>
-    </div>
-
-    <div class="user">
-        <div class="avatar yellow-avt">LM</div>
-        <div class="info">
-            <b>Lê Minh</b>
-            <p>Mobile App • Vắng 9 ngày</p>
-        </div>
-        <span class="tag yellow-tag">Nhắc nhở</span>
-    </div>
-
-    <div class="footer">
-        Xem tất cả thành viên →
-    </div>
 </div>
 
-    
 </body>
 </html>
